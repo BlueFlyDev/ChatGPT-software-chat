@@ -7,16 +7,6 @@ client = OpenAI(
     base_url=Tool.getYml("account")["url"]
 )
 
-# 非流式响应
-def gpt_35_api(messages: list):
-    """为提供的对话消息创建新的回答
-
-    Args:
-        messages (list): 完整的对话消息
-    """
-    completion = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
-    print(completion.choices[0].message.content)
-
 def gpt_45_api_stream(messages: list):
     """为提供的对话消息创建新的回答 (流式传输)
 
